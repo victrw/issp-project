@@ -18,3 +18,5 @@ Task
 Change Full name into first and last name 
 Create library page
 Make user settings save into the database
+
+Need to make a forgot password page.
