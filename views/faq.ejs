@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title || 'Frequently Asked Questions' %></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light custom-navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">ASLSTEAMHUB</a>
+            <div class="collapse navbar-collapse d-flex justify-content-end">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <!-- user logout or login depending on if they are logged in or not-->
+                        <a class="nav-link" href="/users/login">
+                            <i class="fas fa-sign-out-alt"></i> Login
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content">
+        <div class="container faq-section">
+            <h1 class="text-center">Frequently Asked Questions</h1>
+            <p class="lead text-center">Find answers to common questions below.</p>
+
+            <!-- FAQ Items -->
+            <div class="accordion" id="faqAccordion">
+                <% const faqs = [
+                    { question: "What is ASLSTEAMHUB?", answer: "ASLSTEAMHUB is a platform dedicated to providing resources and support for learning American Sign Language (ASL) in the context of science and technology." },
+                    { question: "How do I create an account?", answer: "You can create an account by clicking on the 'Sign Up' button on the homepage and filling out the registration form." },
+                    { question: "Is there a cost to access the resources?", answer: "Access to basic resources is free, but some premium content may require a subscription." },
+                    { question: "How can I contact customer support?", answer: "You can contact our customer support team by visiting the 'Contact Us' page and filling out the form provided." },
+                    { question: "What types of resources are available?", answer: "We offer a variety of resources, including video tutorials, word lists, and interactive quizzes to help with learning ASL in a scientific context." },
+                    { question: "Can I contribute to the platform?", answer: "Yes! We welcome contributions from users. You can submit your resources or suggestions through the 'Contribute' section on the website." }
+                ]; %>
+                <% faqs.forEach((faq, index) => { %>
+                    <div class="faq-item">
+                        <h4 data-toggle="collapse" data-target="#faq<%= index + 1 %>" aria-expanded="false" aria-controls="faq<%= index + 1 %>"><%= index + 1 %>. <%= faq.question %></h4>
+                        <div id="faq<%= index + 1 %>" class="collapse" data-parent="#faqAccordion">
+                            <p><%= faq.answer %></p>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer mt-auto">
+        <div class="container-fluid">
+            <div class="row w-100 d-flex justify-content-around align-items-center">
+                <div class="col-md-2 text-left">
+                    <img src="/qmw8U98.png" alt="Logo" class="footer-logo small-logo">
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-3 ml-5 mb-1 text-left">
+                            <h5>Quick Links</h5>
+                            <ul class="list-unstyled">
+                                <li><a href="/contact" class="text-light">Contact Us</a></li>
+                                <li><a href="/about" class="text-light">About Us</a></li>
+                                <li><a href="/careers" class="text-light">Careers</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3 mb-1 text-left">
+                            <h5>Social Media</h5>
+                            <ul class="list-unstyled">
+                                <li><a href="#" class="text-light">Facebook</a></li>
+                                <li><a href="#" class="text-light">Twitter</a></li>
+                                <li><a href="#" class="text-light">LinkedIn</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 text-left">
+                    <h4>© 2024 ASLSTEAMHUB. All rights reserved.</h4>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

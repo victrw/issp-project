@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Details - ASLSteamHub</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body class="bg-light">
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light custom-navbar">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/users/dashboard">ASLSTEAMHUB</a>
+      <div class="collapse navbar-collapse d-flex justify-content-end">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/users/logout">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="content-wrapper">
+    <div class="container mt-5">
+      <h1>User Details</h1>
+      <hr>
+      <form>
+        <div class="form-group">
+            <label for="userName">Username</label>
+            <input type="text" class="form-control" id="userName" value="<%= user.username %>">
+          </div>
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input type="text" class="form-control" id="fullName" value="<%= user.fullName || 'No Full Name Set' %>">
+        </div>
+        <div class="form-group">
+          <label for="emailAddress">Email Address</label>
+          <input type="email" class="form-control" id="emailAddress" value="<%= user.email %>">
+        </div>
+        <div class="form-group">
+          <label for="phoneNumber">Phone Number</label>
+          <input type="tel" class="form-control" id="phoneNumber" value="<%= user.phone || 'No Phone Number Set' %>">
+        </div>
+        <div class="form-group">
+          <label for="currentPassword">Current Password</label>
+          <input type="password" class="form-control" id="currentPassword" placeholder="Enter current password">
+        </div>
+        <div class="form-group">
+          <label for="newPassword">New Password</label>
+          <input type="password" class="form-control" id="newPassword" placeholder="Enter new password">
+        </div>
+        <div class="form-group">
+          <label for="confirmPassword">Confirm New Password</label>
+          <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm new password">
+        </div>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer bg-dark text-light py-5 mt-5 w-100 px-5">
+      <div class="container-fluid">
+          <div class="row w-100 d-flex justify-content-around align-items-center">
+              <div class="col-md-2 text-left">
+                  <img src="/qmw8U98.png" alt="Logo" class="footer-logo small-logo">
+              </div>
+              <div class="col-md-6">
+                  <div class="row">
+                      <div class="col-md-3 ml-5 mb-1 text-left">
+                          <h5>Quick Links</h5>
+                          <ul class="list-unstyled">
+                              <li><a href="/contact" class="text-light">Contact Us</a></li>
+                              <li><a href="/about" class="text-light">About Us</a></li>
+                              <li><a href="/careers" class="text-light">Careers</a></li>
+                          </ul>
+                      </div>
+                      <div class="col-md-3 mb-1 text-left">
+                          <h5>Social Media</h5>
+                          <ul class="list-unstyled">
+                              <li><a href="#" class="text-light">Facebook</a></li>
+                              <li><a href="#" class="text-light">Twitter</a></li>
+                              <li><a href="#" class="text-light">LinkedIn</a></li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-3 text-left">
+                  <h4>&copy; 2024 ASLSTEAMHUB. All rights reserved.</h4>
+              </div>
+          </div>
+      </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
