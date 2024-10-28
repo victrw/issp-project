@@ -8,11 +8,13 @@ json-server --watch db.json --port 3001
 ```
 node app.js
 ```
-or if you prefer 
+or if you prefer a live server
 ```
 nodemon app.js
 ```
 
 Task
 ----
-Logout or login depending if the user is logged in or not.
+Change Full name into first and last name 
+Create library page
+Make user settings save into the database
