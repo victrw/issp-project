@@ -47,6 +47,7 @@ app.get('/users/login', redirectIfAuthenticated, (req, res) => {
                           heading: 'Login to Your Account'
      });
 });
+
 app.use('/users', usersRouter);
 
 // Start the server
