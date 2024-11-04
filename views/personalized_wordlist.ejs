@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalized Word List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light custom-navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/users/dashboard">ASLSTEAMHUB</a>
+            <div class="collapse navbar-collapse d-flex justify-content-end">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/users/logout">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content">
+        <div class="container personalized-wordlist-section">
+            <h1 class="text-center">Personalized Word List</h1>
+            <p class="lead text-center">Select words to add to your personalized word list</p>
+
+            <!-- Word Entries -->
+            <% wordList.forEach(word => { %>
+                <div class="word-entry d-flex justify-content-between align-items-center">
+                    <div>
+                        <h3><%= word.name %></h3>
+                        <p>Definition: <%= word.definition %></p>
+                        <video controls width="200">
+                            <source src="<%= word.videoSrc %>" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="word-<%= word.id %>" class="word-checkbox" data-word="<%= word.name %>">
+                    </div>
+                </div>
+            <% }); %>
+
+            <div class="text-center mt-4">
+                <button id="saveWordList" class="btn btn-primary">Save Personalized Word List</button>
+            </div>
+        </div>
+    </div>
+
+    <%- include('partials/footer') %>
+
+    
+    <!-- <script>
+        document.getElementById('saveWordList').addEventListener('click', function() {
+            const selectedWords = [];
+            const checkboxes = document.querySelectorAll('.word-checkbox:checked');
+
+            checkboxes.forEach(checkbox => {
+                selectedWords.push(checkbox.getAttribute('data-word'));
+            });
+
+            // Here you would typically send selectedWords to the server via an AJAX call
+            // For example:
+            // $.post('/savePersonalizedWordList', { words: selectedWords }, function(response) {
+            //     // Handle response
+            // });
+
+            alert('Selected words: ' + selectedWords.join(', '));
+        });
+    </script> -->
+</body>
+</html>
