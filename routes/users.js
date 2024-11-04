@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const router = express.Router();
 const passport = require('passport');
-
+const authController = require('../auth/authContoller.js');
 
 dbPath = path.join(__dirname, '../db.json');
 // Route to render the register page
@@ -122,5 +122,15 @@ router.get('/wordlist', (req, res) => {
         res.redirect('/users/login');
     }
 });
+
+
+// Route to display the forgot password page
+router.get('/forgot-password', authController.displayForgotPasswordPage);
+// Route to handle forgot password form submission
+router.post('/forgot-password', authController.resetPassword);
+// Route to handle password reset verification
+router.get('/forgot-password/:token', authController.verifyEmailForResetPassword);
+// Route to handle password change
+router.post('/change-password', authController.changePassword);
 
 module.exports = router;
