@@ -4,6 +4,9 @@ const path = require('path');
 const router = express.Router();
 const passport = require('passport');
 const authController = require('../auth/authContoller.js');
+const userController = require('../controllers/userController.js');
+
+
 
 dbPath = path.join(__dirname, '../db.json');
 // Route to render the register page
@@ -88,7 +91,7 @@ router.get('/dashboard', (req, res) => {
         res.render('user_dashboard', { 
             title: 'Dashboard', 
             user: req.user, 
-            userName: req.user.username // Pass userName to the view
+            userName: req.user.username 
         });
     } else {
         res.redirect('/users/login');
@@ -132,5 +135,9 @@ router.post('/forgot-password', authController.resetPassword);
 router.get('/forgot-password/:token', authController.verifyEmailForResetPassword);
 // Route to handle password change
 router.post('/change-password', authController.changePassword);
+
+router.get('personalized_wordlist', userController.getPersonalizedWordList);
+
+
 
 module.exports = router;

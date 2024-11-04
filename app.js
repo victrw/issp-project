@@ -7,7 +7,7 @@ const app = express();
 const crypto = require('crypto');
 const secret = crypto.randomBytes(64).toString('hex');
 const redirectIfAuthenticated = require('./middleware/auth');
-
+const userController = require('./controllers/userController');
 
 
 // Set view engine to EJS
@@ -50,6 +50,8 @@ app.get('/users/login', redirectIfAuthenticated, (req, res) => {
 
 app.use('/', indexRouter)
 app.use('/users', usersRouter);
+
+app.get('/users/personalized_wordlist', userController.getPersonalizedWordList);
 
 // Start the server
 const PORT = process.env.PORT || 3000;
