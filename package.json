@@ -12,5 +12,8 @@
     "nodemailer": "^6.9.16",
     "passport": "^0.7.0",
     "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "json-server": "^0.17.0"
   }
 }

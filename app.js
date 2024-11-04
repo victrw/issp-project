@@ -48,6 +48,7 @@ app.get('/users/login', redirectIfAuthenticated, (req, res) => {
      });
 });
 
+app.use('/', indexRouter)
 app.use('/users', usersRouter);
 
 // Start the server
